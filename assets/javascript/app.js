@@ -1,16 +1,17 @@
- console.log("hello");
+ console.log("Goodday");
 
 
  var zooArray = [ "squirrel" , "dog", "cat", "lion" , " tiger", "rat", "rhino" ];
-
+renderButtons();
 
  // This .on("click") function will trigger the AJAX Call
  // function display animal 
 
 function displayAnimal (){
 
-// aniumalInfo function re-renders the HTML to display the appropriate content
-var animal = $(this).attr(" data-name");
+// animalInfo function re-renders the HTML to display the appropriate content
+var animal = $(this).attr("data-name");
+    animal = encodeURI(animal);
 
 var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         animal + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -20,6 +21,8 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
           url: queryURL,
           method: "GET"
         }).done(function(response) {
+          
+          console.log(response);
            // Creating a div to hold the animal
            var animalDiv = $("<div class = 'animal'>");
            // Storing the rating data
@@ -45,11 +48,11 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         for (var i = 0; i < zooArray.length; i++) {
           // Then dynamicaly generating buttons for each movie in the array
           // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-          var a = $(<"button">);
+          var a = $("<button>");
           // Adding a class of movie to our button
           a.addClass("zoo")
            // Adding a data-attribute
-          a.attr("data-name" , zooArray[i]);
+          a.attr("data-name" ,  zooArray[i]);
           // Providing the initial button text
           a.text(zooArray[i]);
           $("#buttons-view").append(a);
@@ -58,10 +61,10 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
     }
 
      // This function handles events where a animal search button is clicked
-     $("# add-animal").on("click" , function(event) {
+     $("#add-animal").on("click" , function(event) {
       event.preventDefault();
       // This line grabs the input from the textbox
-      var zoo = $("#animal-input").val().trim();
+      var zoo = $("#find-input").val().trim();
       // Adding movie from the textbox to our array
       zooArray.push(zoo);
        // Calling renderButtons which handles the processing of our movie array
@@ -73,9 +76,8 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
      renderButtons();
 
 
-     console.log(find-anmial){
-      alert("check");
-     }
+
+ 
 
 
   
