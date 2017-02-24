@@ -9,23 +9,29 @@
 
 </head>
 
-<body>
-  <div class="container">
-  <h1>Animals</h1>
-  
-  <div id="buttons-view">
- <!--this is the form where user will input data about animals -->
-<form id ="animal-form"> 
-   <label id="animal-input">Search for a Animal</label>
-   <input type="text" id="animal-input"><br>
- <!--this button will trigger the AJAX call  -->
-  <input id="find-animal" type="submit" value="Animal Search">
-  </form>
-  
+<style>
+.animalDiv{
+  display: inline-block;
+  padding: 10px;
+}
 
+</style>
+
+<body>
+<div class="container">
+    <h1 style =" color:blue;">Animals</h1>
+   
+   <div id="newButtons"> </div>
+   
+    <form>
+        <input type= "text" class= "inputText">
+        <br>
+        <input type="submit" class="add-gify" value="Search">
+
+    </form> 
+    <div id= "gif-holder"></div>  
   
-  
-  </div>
+</div>
   
 </body>
   <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
