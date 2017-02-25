@@ -15,7 +15,9 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         $.ajax({
           url: queryURL,
           method: "GET"
+
         }).done(function(response) {
+          $("#gif-holder").empty();
 
           for (let i = 0; i < response.data.length; i++){
           // create a div to store animalrespnse
@@ -39,6 +41,7 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
            animalDiv.append(img);
            // animalDiv is appeniding to the paragrapgh div 
            p.appendTo(animalDiv);
+
 
            $("#gif-holder").prepend(animalDiv);
          }
