@@ -7,7 +7,7 @@ function displayAnimal (){
 // animalInfo function re-renders the HTML to display the appropriate content
 var animal = $(this).attr("data-name");
   
-
+// api url and key 
 var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         animal + "&api_key=dc6zaTOxFJmzC&limit=10";
          
@@ -42,13 +42,13 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
            // animalDiv is appeniding to the paragrapgh div 
            p.appendTo(animalDiv);
 
-
+            // prepend new gif aboive the last one clicked
            $("#gif-holder").prepend(animalDiv);
          }
 
         });
       }
-
+        // the animate and still here 
         $("#gif-holder").on("click" ,".imageGyphy", function(){
 
           var state = $(this).attr("data-state");
@@ -65,7 +65,7 @@ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         });
     
   
-// function display animal 
+// function display gify 
    function renderButtons() {
         
         $("#newButtons").empty();
